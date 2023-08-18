@@ -1,53 +1,64 @@
-@extends('layouts.default')
+<!doctype html>
+<html lang="en">
 
-@section('content')
-    <div class="container-fluid d-flex align-items-center p-0">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Laravel | {{ $title_page ?? '' }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+</head>
+
+<body>
+
+    <div class="container mt-5">
+        @if (session()->has('success'))
+            <div class="alert alert-info alert-dismissible fade show" role="alert">
+                <strong>{{ session('success') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        @endif
         
-        <div class="login-image">
-            <img src="{{ asset('mosque.jpg') }}" class="card-img-top object-fit-cover vh-100" style="width: 600px" alt="...">   
-        </div>
-
-        <div class="login-form mx-auto">
-            <div class="title mb-4">
-                <h1>Selamat Datang! <br> Silahkan masukkan data.</h1>
+        @if (session()->has('login-error'))
+            <div class="alert alert-danger alert-dismissible fade show" role="alert">
+                <strong>{{ session('login-error') }}</strong>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
             </div>
-
-            <div class="form-input">
-                <a href="/auth/google" class="btn btn-md btn-outline-dark w-100 py-2">Masuk dengan akun Google</a>
-                <div class="divider my-2 d-flex justify-content-between align-items-center">
-                    <hr style="width: 35%"><span>Atau</span><hr style="width: 35%">
+        @endif
+    
+        <div class="d-flex flex-column justify-content-center align-items-center gap-5 mx-auto w-50 h-50">
+            <div class="card border-dashed-2">
+                <div class="card-body">
+                    <h3>Sistem Menentukan Tata Letak Infrastruktur</h3>
                 </div>
-
-                <form action="{{ route('login') }}" method="post">
-                    @csrf
-                    <div class="form-group">
-                        <div class="form-floating mb-3">
-                            <input type="email" class="form-control" name="email" id="email" placeholder="name@example.com">
-                            <label for="email">Email</label>
-                        </div>
-
-                        <div class="form-floating">
-                            <input type="password" class="form-control" name="password" id="password" placeholder="Password">
-                            <label for="password">Kata Sandi</label>
-                        </div>
-    
-                        <div class="form-helper d-flex justify-content-between align-items-center my-3">
-                            <div class="form-check">
-                                <input class="form-check-input" type="checkbox" value="" name="remember" id="remember">
-                                <label class="form-check-label" for="remember">Ingat untuk 30 Hari</label>
-                            </div>
-                            <a href="http://" class="btn btn-link">Lupa password ?</a>                          
-                        </div>
-    
-                        <button type="submit" class="btn btn-md btn-dark w-100 py-3">Masuk</button>
-                        <p class="text-center mt-2">TIdak ada akun ? <strong><a href="/register">Register</a></strong></p>
-                    </div>
-                </form>
             </div>
-            
 
-
+            <div class="card border-0" style="width: 30rem">
+                <div class="card-body">
+                    <form action="/login" method="post">
+                        @csrf
+                        <div class="mb-3">
+                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" placeholder="Username" autofocus>
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
+                        </div>
+                        <div class="mb-3">
+                            <input type="password" class="form-control" name="password" placeholder="Password">
+                        </div>
+                        <button type="submit" name="submitlogin" class="btn btn-dark w-100">Login</button>
+                    </form>
+                </div>
+            </div>
         </div>
-
     </div>
-@endsection
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous">
+    </script>
+</body>
+
+</html>
+
