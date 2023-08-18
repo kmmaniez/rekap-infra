@@ -44,13 +44,13 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
-    public function socialAccounts()
-    {
-        return $this->hasMany(SocialAccount::class);
-    }
-
     public function roles()
     {
         return $this->belongsTo(Role::class, 'id_role');
+    }
+
+    public function infrastrukturs()
+    {
+        return $this->hasMany(Infrastruktur::class,'id_user');
     }
 }
