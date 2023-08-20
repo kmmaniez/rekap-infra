@@ -10,7 +10,7 @@
                     <tr>
                         <th scope="col">Nama Pengguna</th>
                         <th scope="col">Username</th>
-                        <th scope="col">ROle</th>
+                        <th scope="col">Role</th>
                         {{-- <th scope="col">Infrastruktur</th>
                         <th scope="col">Tanggal Digunakan</th> --}}
                         <th scope="col">Aksi</th>
