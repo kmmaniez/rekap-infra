@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Infrastruktur;
+use App\Models\Ruangan;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 
@@ -13,10 +15,10 @@ class InfrastrukturController extends Controller
      */
     public function index()
     {
-        return view('admin.infrastructure.index',[
+        return view('admin.infrastruktur.index',[
             'infrastruktur' => Infrastruktur::query()
                                 ->with('ruangans','penggunas')
-                                ->where(DB::raw('YEAR(tanggal_dipakai)'),date('Y'))
+                                // ->where(DB::raw('YEAR(tanggal_dipakai)'),date('Y'))
                                 ->get()
         ]);
     }
@@ -26,7 +28,28 @@ class InfrastrukturController extends Controller
      */
     public function create()
     {
-        return view('admin.infrastructure.create');
+        $penanggung = [
+            'Fadlul Khoiri',
+            'Romi Husni Ependi',
+            'Ezra Atmanda',
+            'Derry Muhammad Iqbal',
+           ' Haridsyah Anshari Firdaus',
+            'Setiyo Gunawan',
+            'Ulima Anis Syifa',
+            'Fandika Zainul Adian',
+            'Bintoro Abdillah',
+            'Badr Khaerudin',
+            'Fathin Hasbi Taufik',
+            'Marsi Abdul Rafi',
+            'Rifal Putra Ardinata',
+            'Eki Subaeki',
+            'Nadila',
+        ];
+        return view('admin.infrastruktur.create',[
+            'ruangan' => Ruangan::all(),
+            'pengguna' => User::all(),
+            'penanggung' => $penanggung
+        ]);
     }
 
     /**
@@ -50,7 +73,11 @@ class InfrastrukturController extends Controller
      */
     public function edit(Infrastruktur $infrastruktur)
     {
-        //
+        return view('admin.infrastruktur.edit',[
+            'infrastruktur' => $infrastruktur,
+            'ruangan' => Ruangan::all(),
+            'pengguna' => User::all()
+        ]);
     }
 
     /**
