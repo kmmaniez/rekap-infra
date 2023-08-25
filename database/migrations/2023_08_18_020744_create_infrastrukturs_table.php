@@ -16,7 +16,8 @@ return new class extends Migration
             $table->foreignId('id_user')->references('id')->on('users');
             $table->foreignId('id_ruang')->references('id')->on('ruangans');
             $table->string('nama_barang');
-            $table->date('tanggal_dipakai');
+            $table->date('tgl_mulai');
+            $table->date('tgl_selesai');
             $table->timestamps();
         });
     }
