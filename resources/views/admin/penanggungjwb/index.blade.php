@@ -5,24 +5,30 @@
         <div class="card-body">
             <h3>Rekap Penanggungjawab</h3>
             <a href="{{ route('penanggungjawab.create') }}" class="btn btn-md btn-primary mb-2">Tambah Penanggung Jawab</a>
-            <table class="table table-bordered table-striped">
+            <table class="table table-hover">
                 <thead>
                     <tr>
-                        <th scope="col">Nama Penanggung Jawab</th>
+                        {{-- <th scope="col">Nama Penanggung Jawab</th> --}}
+                        <th scope="col">Pengguna</th>
+                        <th scope="col">Infrastruktur</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr>
                         <td>Fadlul Khoiri</td>
+                        <td>Kamera</td>
                     </tr>
                     <tr>
                         <td>Romi Husni Ependi</td>
+                        <td>Laptop</td>
                     </tr>
                     <tr>
                         <td>Ezra Atmanda</td>
+                        <td>Kamera</td>
                     </tr>
                     <tr>
                         <td>Derry Muhammad Iqbal</td>
+                        <td>Printer</td>
                     </tr>
                     {{-- @forelse ($pengguna as $pengguna)
                         <tr>
