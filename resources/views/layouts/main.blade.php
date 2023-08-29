@@ -27,13 +27,12 @@
         <div class="row">
             <div class="col-lg-3 mb-3">
                 <ul class="list-group">
-                    {{-- <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ (request()->routeIs('dashboard')) ? 'active' : '' }}">Dashboard</a>
-                    <a href="{{ route('ruangan.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('ruangan.*') ? 'active' : '') }}">Menu Ruangan</a> --}}
-                    {{-- <a href="{{ route('pengguna.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('pengguna.create') ? 'active' : '') }}">Kelola Pengguna</a> --}}
-                    {{-- <a href="{{ route('infrastruktur.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('infrastruktur.index') ? 'active' : '') }}">Menu Infrastruktur</a> --}}
-                    <a href="{{ route('infrastruktur.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('infrastruktur.index') ? 'active' : '') }}">Menu Infrastruktur</a>
-                    {{-- <a href="{{ route('pengguna.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('pengguna.*') ? 'active' : '') }}">Menu Pengguna</a> --}}
-                    <a href="{{ route('infrastruktur.rekap') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('infrastruktur.rekap') ? 'active' : '') }}">Menu Infrastruktur</a>
+                    {{-- <a href="{{ route('dashboard') }}" class="list-group-item list-group-item-action {{ (request()->routeIs('dashboard')) ? 'active' : '' }}">Dashboard</a> --}}
+                    <a href="{{ route('pengguna.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('pengguna.*') ? 'active' : '') }}">Menu Kelola Akun</a>
+                    <a href="{{ route('ruangan.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('ruangan.*') ? 'active' : '') }}">Menu Ruangan</a>
+                    <a href="{{ route('infrastruktur.rekap') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('infrastruktur.rekap') ? 'active' : '') }}">Menu Rekap Infrastruktur</a>
+                    <a href="{{ route('infrastruktur.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('infrastruktur.index') ? 'active' : '') }}">Menu Input Infrastruktur</a>
+                    <a href="" class="list-group-item list-group-item-action">Menu Rekap Pengguna</a>
                     <a href="{{ route('penanggungjawab.index') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('penanggungjawab.*') ? 'active' : '') }}">Menu Penanggungjawab</a>
                     <a href="{{ route('rekomendasi') }}" class="list-group-item list-group-item-action {{ (Request::routeIs('rekomendasi') ? 'active' : '') }}">Rekomendasi Tata Letak Infrastruktur</a>
                     
@@ -69,3 +68,30 @@
 </body>
 
 </html>
+<!-- 
+Menu kelola akun
+- nama pengguna,role
+
+Menu ruangan
+- nama ruangan
+
+Menu rekap infra
+- pengguna
+- nama infra
+- lokasi
+
+menu input infra
+- nama infra
+- nama penanggungjwb
+- tglmulai & selesai
+- ruang penyimpanan
+- ruang pemakaian
+
+Menu penanggungjwb
+- nama pengguna, infra
+
+Menu rekomen tata letak
+- nama infra
+- penanggung jwb
+- penyimpanan
+-->
